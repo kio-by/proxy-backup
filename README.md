@@ -1,23 +1,24 @@
 # Proxy Backup for Google Drive API
 
-Shell scripts for security delivery backups from your servers to Google Drive by API:
+Shell scripts for secure delivery of backups from your servers to Google Drive using API:
 
 - Creates a user for each project:
   - without password
   - with minimal rights
   - auto generating personal ssh-keys
   - send ssh-keys to admin by telegram
-- Waiting to receive data from the source server via ssh
-- When the data appeared in the project's home directory, moves it to Google Disk
+- Waits to receive data from the source server via SSH
+- When the data appears in the project's home directory, it moves it to Google Drive
 
 ```mermaid
 flowchart LR
     source[(Source Data)] --> | SSH | proxy[(Proxy Server)] --> | API | target[(Google Drive)]
 ```
 
-- Easy to manage projects
-- If there are multiple projects, the credentials are stored in one secure location
-- The data source platform does not matter. Simply copy the required data to the server via ssh keys
+- Easy to manage projects:
+  - If there are multiple projects, the credentials are stored in one secure location
+- Platform-independent data source:
+  - The data source platform does not matter. Simply copy the required data to the server via SSH keys
 
 ## Prerequisites
 
